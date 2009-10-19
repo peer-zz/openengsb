@@ -16,19 +16,16 @@
    limitations under the License.
 
 -->
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:proto="urn:openengsb:prototype" xmlns:eip="http://servicemix.apache.org/eip/1.0"
-  xmlns:logging="urn:openengsb:logging" xmlns:routing="urn:openengsb:routing" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:bean="http://servicemix.apache.org/bean/1.0"
+  xmlns:evillogging="urn:openengsb:evillogging" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="
-    http://servicemix.apache.org/eip/1.0 http://servicemix.apache.org/schema/servicemix-eip-3.2.3.xsd 
+    http://servicemix.apache.org/bean/1.0 http://servicemix.apache.org/schema/servicemix-bean-3.2.3.xsd
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-  <eip:pipeline endpoint="endpoint" service="routing:CIWorkflow">
-    <eip:transformer>
-      <eip:exchange-target operation="forward" service="proto:prototypeService" endpoint="prototypeEndpoint" />
-    </eip:transformer>
-    <eip:target>
-      <eip:exchange-target service="logging:BaseLogger" />
-    </eip:target>
-  </eip:pipeline>
+  <bean:endpoint bean="#evilbaseLogger" endpoint="endpoint" service="evillogging:BaseLogger" />
+  <bean:endpoint bean="#evilbaseLogger2" endpoint="endpoint" service="evillogging:BaseLogger2" />
+
+  <bean class="org.openengsb.loggingevil.BaseLogger" id="evilbaseLogger" />
+  <bean class="org.openengsb.loggingevil.BaseLogger2" id="evilbaseLogger2" />
 
 </beans>

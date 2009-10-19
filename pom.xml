@@ -81,6 +81,7 @@
     <module>openengsb-timing</module>
     <module>openengsb-routing</module>
     <module>openengsb-logging</module>
+    <module>openengsb-logging-evil</module>
     <module>openengsb-util</module>
         
     <!-- Engineering Knowledge Base -->
@@ -94,6 +95,10 @@
 
     <!-- Workflows -->
     <module>openengsb-workflow</module>
+
+    <!-- Prototype -->
+    <module>openengsb-domain-prototype</module>
+    <module>openengsb-domain-prototype-se</module>
 
     <!-- SCM Domain -->
     <module>openengsb-domain-scm-se</module>
@@ -470,6 +475,18 @@
         <version>${pom.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.openengsb</groupId>
+        <artifactId>openengsb-domain-prototype</artifactId>
+        <version>${pom.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openengsb</groupId>
+        <artifactId>openengsb-domain-prototype-se</artifactId>
+        <version>${pom.version}</version>
+      </dependency>
+
       <!-- Common Modules & Helpers -->
       <dependency>
         <groupId>org.openengsb</groupId>
@@ -484,6 +501,11 @@
       <dependency>
         <groupId>org.openengsb</groupId>
         <artifactId>openengsb-logging</artifactId>
+        <version>${pom.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openengsb</groupId>
+        <artifactId>openengsb-logging-evil</artifactId>
         <version>${pom.version}</version>
       </dependency>
       <dependency>
